@@ -22,6 +22,7 @@ type UI = {
   languages: { name: string; level: string }[];
   email: string;
   allProjects: string;
+  more: string;
   allPosts: string;
   projectsSub: string;
   blogSub: string;
@@ -59,6 +60,7 @@ export const ui: Record<Lang, UI> = {
     ],
     email: 'Email',
     allProjects: 'All projects →',
+    more: 'More →',
     allPosts: 'All posts →',
     projectsSub: "Things I've built, solo and with teams.",
     blogSub: 'Notes on what I learn and build.',
@@ -71,7 +73,7 @@ export const ui: Record<Lang, UI> = {
       sales: 'Data warehouse with Bronze, Silver and Gold layers built from raw CSVs, with a star schema for KPI and reporting queries.',
       songdo: "Operating Systems course project at Inha. Led a team of 8: managed the repo, merged commits and reviewed everyone's code.",
       sign: 'Real-time recognition of ASL letters and digits from a webcam.',
-      analytics: 'SQL analysis of datasets with Tableau dashboards to support data-driven decisions.',
+      analytics: 'SQL scripts that explore and analyze a sales database: rankings, trends over time, customer segments and ready-made reports.',
     },
   },
 
@@ -103,6 +105,7 @@ export const ui: Record<Lang, UI> = {
     ],
     email: 'Почта',
     allProjects: 'Все проекты →',
+    more: 'Подробнее →',
     allPosts: 'Все посты →',
     projectsSub: 'Что я сделал — сам и в команде.',
     blogSub: 'Заметки о том, что я изучаю и делаю.',
@@ -115,7 +118,7 @@ export const ui: Record<Lang, UI> = {
       sales: 'Хранилище данных со слоями Bronze, Silver и Gold из сырых CSV и схемой «звезда» для KPI и отчётов.',
       songdo: 'Проект по курсу «Операционные системы» в Инха. Руководил командой из 8 человек: вёл репозиторий, мёржил коммиты и делал код-ревью.',
       sign: 'Распознавание букв и цифр ASL с веб-камеры в реальном времени.',
-      analytics: 'Анализ данных на SQL и дашборды в Tableau для решений на основе данных.',
+      analytics: 'SQL-скрипты для исследования и анализа базы продаж: рейтинги, динамика во времени, сегменты клиентов и готовые отчёты.',
     },
   },
 
@@ -147,6 +150,7 @@ export const ui: Record<Lang, UI> = {
     ],
     email: '이메일',
     allProjects: '전체 프로젝트 →',
+    more: '자세히 →',
     allPosts: '전체 글 →',
     projectsSub: '혼자, 또는 팀으로 만든 것들.',
     blogSub: '배우고 만든 것들을 기록합니다.',
@@ -159,7 +163,7 @@ export const ui: Record<Lang, UI> = {
       sales: '원시 CSV로 Bronze/Silver/Gold 계층을 구성하고 KPI·리포팅용 스타 스키마를 설계한 데이터 웨어하우스.',
       songdo: '인하대 운영체제 수업 팀 프로젝트. 8명 팀의 리더로서 저장소 관리, 커밋 병합, 코드 리뷰를 맡았습니다.',
       sign: '웹캠으로 ASL 알파벳과 숫자를 실시간으로 인식합니다.',
-      analytics: 'SQL로 데이터를 분석하고 Tableau 대시보드로 시각화해 데이터 기반 의사결정을 지원했습니다.',
+      analytics: '판매 데이터베이스를 탐색·분석하는 SQL 스크립트 모음: 순위, 시간에 따른 추세, 고객 세분화, 보고서.',
     },
   },
 
@@ -191,6 +195,7 @@ export const ui: Record<Lang, UI> = {
     ],
     email: 'Email',
     allProjects: 'Barcha loyihalar →',
+    more: 'Batafsil →',
     allPosts: 'Barcha postlar →',
     projectsSub: 'Yakka va jamoada qilgan ishlarim.',
     blogSub: "O'rganganlarim va qilganlarim haqida yozuvlar.",
@@ -203,7 +208,7 @@ export const ui: Record<Lang, UI> = {
       sales: "Xom CSV fayllardan Bronze, Silver va Gold qatlamli ma'lumotlar ombori, KPI va hisobotlar uchun star schema bilan.",
       songdo: "Inha'dagi Operatsion tizimlar kursi loyihasi. 8 kishilik jamoaga rahbarlik qildim: repozitoriyni boshqardim, commit'larni birlashtirdim va kodni ko'rib chiqdim.",
       sign: 'Veb-kamera orqali ASL harflari va raqamlarini real vaqtda aniqlash.',
-      analytics: "SQL yordamida ma'lumotlarni tahlil qilish va qaror qabul qilish uchun Tableau dashboardlari.",
+      analytics: "Savdo ma'lumotlar bazasini o'rganish va tahlil qilish uchun SQL skriptlar: reytinglar, vaqt bo'yicha tendensiyalar, mijoz segmentlari va hisobotlar.",
     },
   },
 };
