@@ -1,0 +1,46 @@
+---
+import * as si from 'simple-icons';
+
+interface Props { name: string; size?: number; mono?: boolean }
+const { name, size = 18, mono = false } = Astro.props;
+
+// Icons that simple-icons doesn't have (generic, drawn with strokes)
+const custom: Record<string, string> = {
+  database: '<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>',
+  api: '<path d="M8 4c-2 0-3 1-3 3v2c0 1.5-1 2.5-2 3 1 .5 2 1.5 2 3v2c0 2 1 3 3 3"/><path d="M16 4c2 0 3 1 3 3v2c0 1.5 1 2.5 2 3-1 .5-2 1.5-2 3v2c0 2-1 3-3 3"/>',
+  chart: '<path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/>',
+  linechart: '<path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 6-7"/>',
+  mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
+  linkedin: '',
+};
+const linkedinPath = 'M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z';
+
+const key = 'si' + name.charAt(0).toUpperCase() + name.slice(1);
+const brand = (si as Record<string, any>)[key] as { path: string; hex: string } | undefined;
+
+// Very dark brand colours (GitHub, NumPy, SQLite…) would vanish on the dark theme → use text colour there
+const hex = name === 'linkedin' ? '0A66C2' : brand?.hex;
+let dark = false;
+if (hex) {
+  const [r, g, b] = [0, 2, 4].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255);
+  dark = 0.2126 * r + 0.7152 * g + 0.0722 * b < 0.22;
+}
+const color = mono || !hex ? 'currentColor' : `#${hex}`;
+---
+
+{name === 'linkedin' ? (
+  <svg class:list={['icon', { adapt: dark }]} width={size} height={size} viewBox="0 0 24 24" fill={color} aria-hidden="true"><path d={linkedinPath} /></svg>
+) : brand ? (
+  <svg class:list={['icon', { adapt: dark && !mono }]} width={size} height={size} viewBox="0 0 24 24" fill={color} aria-hidden="true"><path d={brand.path} /></svg>
+) : (
+  <svg class="icon generic" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={custom[name] ?? custom.database} />
+)}
+
+<style>
+  .icon { flex-shrink: 0; display: block; }
+  .generic { color: var(--accent); }
+  :global(:root[data-theme='dark']) .adapt { fill: var(--fg); }
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme='light'])) .adapt { fill: var(--fg); }
+  }
+</style>

@@ -1,0 +1,141 @@
+---
+import { ui, LANGS, LANG_LABEL, localize, type Lang } from '../i18n/ui';
+import { CONTACT } from '../data/profile';
+import Icon from '../components/Icon.astro';
+
+interface Props {
+  lang?: Lang;
+  route?: string; // page path without the language prefix, e.g. '/projects'
+  title?: string;
+  description?: string;
+}
+const { lang = 'en', route = '/', title, description } = Astro.props;
+const t = ui[lang];
+const desc = description ?? t.about[0];
+const pageTitle = title ? `${title} · ${t.name}` : t.name;
+const nav = [
+  { route: '/', label: t.nav.home },
+  { route: '/projects', label: t.nav.projects },
+  { route: '/blog', label: t.nav.blog },
+];
+const isActive = (r: string) => (r === '/' ? route === '/' : route.startsWith(r));
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={desc} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={desc} />
+    <script is:inline>
+      try {
+        const t = localStorage.getItem('theme');
+        if (t) document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <header class="wrap">
+      <a href={localize(lang, '/')} class="logo">Umid<span> · blog</span></a>
+      <nav>
+        {nav.map((n) => <a href={localize(lang, n.route)} class={isActive(n.route) ? 'active' : ''}>{n.label}</a>)}
+        <span class="langs">
+          {LANGS.map((l) => (
+            <a href={localize(l, route)} class={l === lang ? 'on' : ''} hreflang={l} lang={l}>{LANG_LABEL[l]}</a>
+          ))}
+        </span>
+        <button id="theme" aria-label="Toggle theme" title="Toggle theme"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button>
+      </nav>
+    </header>
+
+    <main class="wrap">
+      <slot />
+    </main>
+
+    <footer class="wrap">
+      <div class="links">
+        <a href={`mailto:${CONTACT.email}`} aria-label="Email"><Icon name="mail" mono /></a>
+        <a href={CONTACT.github} target="_blank" rel="noopener" aria-label="GitHub"><Icon name="github" mono /></a>
+        <a href={CONTACT.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn"><Icon name="linkedin" mono /></a>
+        {CONTACT.telegram && <a href={CONTACT.telegram} target="_blank" rel="noopener" aria-label="Telegram"><Icon name="telegram" mono /></a>}
+      </div>
+      <p>© {new Date().getFullYear()} {t.name}</p>
+    </footer>
+
+    <script is:inline>
+      document.getElementById('theme').addEventListener('click', () => {
+        const root = document.documentElement;
+        const dark =
+          root.dataset.theme === 'dark' ||
+          (!root.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
+        root.dataset.theme = dark ? 'light' : 'dark';
+        try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+      });
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #6b6b6b;
+    --line: #e8e8e8;
+    --card: #fafafa;
+    --accent: #2f6feb;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) {
+      --bg: #111214; --fg: #e8e8e8; --muted: #9a9a9a; --line: #26282c; --card: #17181b; --accent: #6ea0ff;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme='dark'] {
+    --bg: #111214; --fg: #e8e8e8; --muted: #9a9a9a; --line: #26282c; --card: #17181b; --accent: #6ea0ff;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.7 -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  h1, h2, h3 { line-height: 1.3; letter-spacing: -0.01em; }
+  h1 { font-size: 2rem; margin: 0 0 0.5rem; }
+  .muted { color: var(--muted); }
+  code { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 0.9em; background: var(--card); border: 1px solid var(--line); padding: 0.1em 0.35em; border-radius: 4px; }
+  pre { background: var(--card) !important; border: 1px solid var(--line); padding: 14px 16px; border-radius: 8px; overflow-x: auto; }
+  pre code { background: none; border: 0; padding: 0; }
+  img { max-width: 100%; }
+  blockquote { margin: 1rem 0; padding: 0 1rem; border-left: 3px solid var(--line); color: var(--muted); }
+
+  header.wrap { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-top: 28px; padding-bottom: 28px; }
+  .logo { font-weight: 700; color: var(--fg); font-size: 1.1rem; }
+  .logo span { color: var(--muted); font-weight: 400; }
+  nav { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  .langs { display: flex; gap: 2px; border: 1px solid var(--line); border-radius: 6px; padding: 2px; }
+  .langs a { font-size: 0.78rem; padding: 2px 7px; border-radius: 4px; color: var(--muted); }
+  .langs a.on { background: var(--card); color: var(--fg); font-weight: 600; }
+  nav a { color: var(--muted); }
+  nav a.active, nav a:hover { color: var(--fg); text-decoration: none; }
+  #theme { background: none; border: 1px solid var(--line); color: var(--fg); border-radius: 6px; width: 30px; height: 30px; cursor: pointer; font-size: 15px; display: grid; place-items: center; }
+  main.wrap { min-height: 60vh; padding-bottom: 48px; }
+  footer.wrap { border-top: 1px solid var(--line); padding-top: 20px; padding-bottom: 40px; color: var(--muted); font-size: 0.9rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  footer p { margin: 0; }
+  footer .links { display: flex; gap: 16px; align-items: center; }
+  footer .links a { color: var(--muted); }
+  footer .links a:hover { color: var(--fg); }
+
+  .tag { display: inline-block; font-size: 0.78rem; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 1px 9px; margin: 0 6px 6px 0; }
+  .section-title { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 2.5rem 0 1rem; font-weight: 600; }
+</style>

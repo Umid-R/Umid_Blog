@@ -1,0 +1,18 @@
+{
+  "name": "umid-blog",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "astro": "^7.4.10",
+    "simple-icons": "^16.37.0"
+  },
+  "type": "module"
+}
