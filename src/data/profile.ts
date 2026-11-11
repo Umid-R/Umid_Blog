@@ -51,3 +51,11 @@ export const PROJECTS = [
   { key: 'sign', name: 'Sign Language Detection', link: 'https://github.com/Umid-R', stack: ['Python', 'Computer Vision'] },
   { key: 'analytics', name: 'Data Analytics Dashboard', link: 'https://github.com/Umid-R', stack: ['SQL', 'PostgreSQL', 'Tableau'] },
 ] as const;
+
+// Icon for each tech tag on the Projects page (keys = labels used in PROJECTS.stack)
+export const STACK_ICON: Record<string, string> = {
+  Python: 'python', SQL: 'database', PostgreSQL: 'postgresql', Airflow: 'apacheairflow',
+  Supabase: 'supabase', Docker: 'docker', FastAPI: 'fastapi', React: 'react',
+  TypeScript: 'typescript', Tableau: 'chart', Git: 'git', GitHub: 'github',
+  'Team lead': 'team', 'Computer Vision': 'eye',
+};
