@@ -2,6 +2,11 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  // Change this to your real URL after deploying (e.g. https://umid.vercel.app)
   site: 'https://umid-blog.vercel.app',
+  markdown: {
+    shikiConfig: {
+      // Code block colours: light theme by default, dark theme via CSS vars (see Base.astro)
+      themes: { light: 'github-light', dark: 'github-dark' },
+    },
+  },
 });
