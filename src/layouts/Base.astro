@@ -40,7 +40,7 @@ const isActive = (r: string) => (r === '/' ? route === '/' : route.startsWith(r)
   </head>
   <body>
     <header class="wrap">
-      <a href={localize(lang, '/')} class="logo">Umid<span> · blog</span></a>
+      <a href={localize(lang, '/')} class="logo" aria-label="Umid — home"><span class="kw">def</span> <span class="fn">umid</span><span class="pn">():</span></a>
       <nav>
         {nav.map((n) => <a href={localize(lang, n.route)} class={isActive(n.route) ? 'active' : ''}>{n.label}</a>)}
         <span class="langs">
@@ -87,16 +87,18 @@ const isActive = (r: string) => (r === '/' ? route === '/' : route.startsWith(r)
     --line: #e8e8e8;
     --card: #fafafa;
     --accent: #2f6feb;
+    --kw: #cf222e;
+    --fn: #8250df;
     color-scheme: light;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme='light']) {
-      --bg: #111214; --fg: #e8e8e8; --muted: #9a9a9a; --line: #26282c; --card: #17181b; --accent: #6ea0ff;
+      --bg: #111214; --fg: #e8e8e8; --muted: #9a9a9a; --line: #26282c; --card: #17181b; --accent: #6ea0ff; --kw: #ff7b72; --fn: #d2a8ff;
       color-scheme: dark;
     }
   }
   :root[data-theme='dark'] {
-    --bg: #111214; --fg: #e8e8e8; --muted: #9a9a9a; --line: #26282c; --card: #17181b; --accent: #6ea0ff;
+    --bg: #111214; --fg: #e8e8e8; --muted: #9a9a9a; --line: #26282c; --card: #17181b; --accent: #6ea0ff; --kw: #ff7b72; --fn: #d2a8ff;
     color-scheme: dark;
   }
   * { box-sizing: border-box; }
@@ -124,8 +126,11 @@ const isActive = (r: string) => (r === '/' ? route === '/' : route.startsWith(r)
   blockquote { margin: 1rem 0; padding: 0 1rem; border-left: 3px solid var(--line); color: var(--muted); }
 
   header.wrap { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-top: 28px; padding-bottom: 28px; }
-  .logo { font-weight: 700; color: var(--fg); font-size: 1.1rem; }
-  .logo span { color: var(--muted); font-weight: 400; }
+  .logo { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 1.05rem; font-weight: 600; letter-spacing: -0.01em; }
+  .logo:hover { text-decoration: none; opacity: 0.85; }
+  .logo .kw { color: var(--kw); }
+  .logo .fn { color: var(--fn); }
+  .logo .pn { color: var(--muted); font-weight: 400; }
   nav { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
   .langs { display: flex; gap: 2px; border: 1px solid var(--line); border-radius: 6px; padding: 2px; }
   .langs a { font-size: 0.78rem; padding: 2px 7px; border-radius: 4px; color: var(--muted); }
