@@ -37,7 +37,7 @@ export const ui: Record<Lang, UI> = {
     greeting: 'Hello, World',
     role: 'Software Engineer',
     about: [
-      "I'm Umid, writing complex code for a simpler life. I study Computer Science & Business Administration at Inha University in Incheon, South Korea.",
+      "I'm Umid, “writing complex code for a simpler life.” I study Computer Science & Business Administration at Inha University in Incheon, South Korea.",
       "I enjoy building things from scratch: backend, databases, and everything in between. I care about clean code, solving real problems, and learning something new every day.",
       "From Uzbekistan 🇺🇿, living in Korea 🇰🇷.",
     ],
@@ -81,7 +81,7 @@ export const ui: Record<Lang, UI> = {
     greeting: 'Hello, World',
     role: 'Разработчик ПО',
     about: [
-      "Я Умид, пишу сложный код ради более простой жизни. Изучаю компьютерные науки и бизнес-администрирование в Университете Инха в Инчхоне (Южная Корея).",
+      "Я Умид, «пишу сложный код ради более простой жизни». Изучаю компьютерные науки и бизнес-администрирование в Университете Инха в Инчхоне (Южная Корея).",
       "Люблю создавать вещи с нуля: бэкенд, базы данных и всё, что между ними. Для меня важны чистый код, решение реальных задач и возможность каждый день узнавать что-то новое.",
       "Родом из Узбекистана 🇺🇿, живу в Корее 🇰🇷.",
     ],
@@ -125,7 +125,7 @@ export const ui: Record<Lang, UI> = {
     greeting: 'Hello, World',
     role: '소프트웨어 엔지니어',
     about: [
-      "더 단순한 삶을 위해 복잡한 코드를 쓰는 우미드입니다. 인천 인하대학교에서 컴퓨터공학과 경영학을 복수전공하고 있습니다.",
+      "“더 단순한 삶을 위해 복잡한 코드를 쓰는” 우미드입니다. 인천 인하대학교에서 컴퓨터공학과 경영학을 복수전공하고 있습니다.",
       "백엔드, 데이터베이스, 그리고 그 사이의 모든 것을 처음부터 직접 만드는 걸 좋아합니다. 깔끔한 코드, 실제 문제 해결, 그리고 매일 새로운 것을 배우는 것을 중요하게 생각합니다.",
       "우즈베키스탄 출신이고 🇺🇿 지금은 한국에 살고 있습니다 🇰🇷.",
     ],
@@ -169,7 +169,7 @@ export const ui: Record<Lang, UI> = {
     greeting: 'Hello, World',
     role: "Dasturiy ta'minot muhandisi",
     about: [
-      "Men Umid, hayotni soddaroq qilish uchun murakkab kod yozaman. Incheondagi Inha universitetida Kompyuter fanlari va Biznes boshqaruvi yo'nalishlarida o'qiyman.",
+      "Men Umid, “hayotni soddaroq qilish uchun murakkab kod yozaman”. Incheondagi Inha universitetida Kompyuter fanlari va Biznes boshqaruvi yo'nalishlarida o'qiyman.",
       "Narsalarni noldan qurishni yaxshi ko'raman: backend, ma'lumotlar bazalari va ular orasidagi hamma narsa. Men uchun toza kod, real muammolarni hal qilish va har kuni yangi narsa o'rganish muhim.",
       "Asli O'zbekistondanman 🇺🇿, hozir Koreyada yashayman 🇰🇷.",
     ],
