@@ -43,9 +43,9 @@ export const SKILLS = {
 
 // Project links + tech stack. Descriptions are translated in ui.ts (same order / same key).
 export const PROJECTS = [
-  { key: 'air', slug: '', name: 'Air Quality Monitoring Pipeline', link: 'https://github.com/Umid-R', stack: ['Python', 'SQL', 'PostgreSQL', 'Airflow', 'Supabase', 'Docker'] },
+  { key: 'air', slug: 'air-quality-pipeline', name: 'Air Quality Monitoring Pipeline', link: 'https://github.com/Umid-R/-Korea-Air-Quality-Alert-Pipeline', stack: ['Python', 'SQL', 'PostgreSQL', 'Airflow', 'Supabase', 'Docker'] },
   { key: 'qaza', slug: 'qaza-tracker', name: 'Qaza Tracker', link: 'https://github.com/Umid-R/qaza-tracker', stack: ['Python', 'FastAPI', 'PostgreSQL', 'React', 'TypeScript'] },
-  { key: 'football', slug: '', name: 'Football Data ELT Pipeline', link: 'https://github.com/Umid-R', stack: ['Python', 'SQL', 'PostgreSQL', 'Airflow'] },
+  { key: 'football', slug: 'football-elt-pipeline', name: 'Football Data ELT Pipeline', link: 'https://github.com/Umid-R/Airflow-Sports-Data-Pipeline', stack: ['Python', 'SQL', 'PostgreSQL', 'Airflow'] },
   { key: 'sales', slug: 'sales-data-warehouse', name: 'Sales Data Warehouse', link: 'https://github.com/Umid-R/sql-data-warehouse-project', stack: ['Python', 'SQL', 'PostgreSQL'] },
   { key: 'songdo', slug: 'songdo-edge-intelligence', name: 'Songdo Edge Intelligence', link: 'https://github.com/Umid-R/songdo-edge-intelligence', stack: ['Python', 'Linux', 'SQLite', 'Docker', 'Team lead'] },
   { key: 'sign', slug: 'sign-language-detection', name: 'Sign Language Detection', link: 'https://github.com/Umid-R/Sign_Language_Detection', stack: ['Python', 'TensorFlow', 'OpenCV', 'MediaPipe'] },
