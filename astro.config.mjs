@@ -2,7 +2,7 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://umid-blog.vercel.app',
+  site: 'https://www.umid.page',
   markdown: {
     shikiConfig: {
       // Code block colours: light theme by default, dark theme via CSS vars (see Base.astro)
