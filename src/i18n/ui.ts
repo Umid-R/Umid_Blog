@@ -16,7 +16,7 @@ type UI = {
   role: string;
   about: string[];
   sec: { education: string; experience: string; skills: string; languages: string; contact: string; posts: string; projects: string };
-  skillGroups: { programming: string; dataEng: string; analysis: string; tools: string };
+  skillGroups: { languages: string; web: string; database: string; dataml: string; devops: string; tools: string };
   education: Entry[];
   experience: Entry[];
   languages: { name: string; level: string }[];
@@ -43,7 +43,7 @@ export const ui: Record<Lang, UI> = {
       "From Uzbekistan 🇺🇿, living in Korea 🇰🇷.",
     ],
     sec: { education: 'Education', experience: 'Experience', skills: 'Skills', languages: 'Languages', contact: 'Contact', posts: 'Recent posts', projects: 'Projects' },
-    skillGroups: { programming: 'Programming & Data', dataEng: 'Data Engineering', analysis: 'Analysis & Visualization', tools: 'Tools & Web' },
+    skillGroups: { languages: 'Languages', web: 'Web', database: 'Database', dataml: 'Data & ML', devops: 'DevOps', tools: 'Tools' },
     education: [
       { title: 'Inha University', org: 'B.S. Computer Science & Business Administration (Double Major)', place: 'Incheon, South Korea', period: '2024 – 2028', note: 'GPA 4.44 / 4.5' },
       { title: 'Tashkent Finance University', org: 'Bachelor of E-Commerce', place: 'Tashkent, Uzbekistan', period: '2023 – 2024' },
@@ -88,7 +88,7 @@ export const ui: Record<Lang, UI> = {
       "Родом из Узбекистана 🇺🇿, живу в Корее 🇰🇷.",
     ],
     sec: { education: 'Образование', experience: 'Опыт', skills: 'Навыки', languages: 'Языки', contact: 'Контакты', posts: 'Последние посты', projects: 'Проекты' },
-    skillGroups: { programming: 'Программирование и данные', dataEng: 'Data Engineering', analysis: 'Анализ и визуализация', tools: 'Инструменты и веб' },
+    skillGroups: { languages: 'Языки', web: 'Веб', database: 'Базы данных', dataml: 'Данные и ML', devops: 'DevOps', tools: 'Инструменты' },
     education: [
       { title: 'Университет Инха', org: 'Бакалавр: компьютерные науки и бизнес-администрирование (двойная специальность)', place: 'Инчхон, Южная Корея', period: '2024 – 2028', note: 'Средний балл 4.44 / 4.5' },
       { title: 'Ташкентский финансовый университет', org: 'Бакалавр: электронная коммерция', place: 'Ташкент, Узбекистан', period: '2023 – 2024' },
@@ -133,7 +133,7 @@ export const ui: Record<Lang, UI> = {
       "우즈베키스탄 출신이고 🇺🇿 지금은 한국에 살고 있습니다 🇰🇷.",
     ],
     sec: { education: '학력', experience: '경력', skills: '기술', languages: '언어', contact: '연락처', posts: '최근 글', projects: '프로젝트' },
-    skillGroups: { programming: '프로그래밍 · 데이터', dataEng: '데이터 엔지니어링', analysis: '분석 · 시각화', tools: '도구 · 웹' },
+    skillGroups: { languages: '언어', web: '웹', database: '데이터베이스', dataml: '데이터 · ML', devops: 'DevOps', tools: '도구' },
     education: [
       { title: '인하대학교', org: '컴퓨터공학 · 경영학 복수전공 (학사)', place: '인천, 대한민국', period: '2024 – 2028', note: '학점 4.44 / 4.5' },
       { title: '타슈켄트 재정대학교', org: '전자상거래 학사', place: '타슈켄트, 우즈베키스탄', period: '2023 – 2024' },
@@ -178,7 +178,7 @@ export const ui: Record<Lang, UI> = {
       "Asli O'zbekistondanman 🇺🇿, hozir Koreyada yashayman 🇰🇷.",
     ],
     sec: { education: "Ta'lim", experience: 'Tajriba', skills: "Ko'nikmalar", languages: 'Tillar', contact: 'Aloqa', posts: "So'nggi postlar", projects: 'Loyihalar' },
-    skillGroups: { programming: "Dasturlash va ma'lumotlar", dataEng: 'Data Engineering', analysis: 'Tahlil va vizualizatsiya', tools: 'Vositalar va veb' },
+    skillGroups: { languages: 'Dasturlash tillari', web: 'Veb', database: "Ma'lumotlar bazalari", dataml: "Ma'lumotlar va ML", devops: 'DevOps', tools: 'Vositalar' },
     education: [
       { title: 'Inha universiteti', org: "Bakalavr: Kompyuter fanlari va Biznes boshqaruvi (ikki yo'nalish)", place: 'Incheon, Janubiy Koreya', period: '2024 – 2028', note: 'GPA 4.44 / 4.5' },
       { title: 'Toshkent moliya universiteti', org: 'Bakalavr: Elektron tijorat', place: "Toshkent, O'zbekiston", period: '2023 – 2024' },

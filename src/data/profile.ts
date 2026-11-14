@@ -10,34 +10,43 @@ export const CONTACT = {
 
 // Each skill: label + icon key (see src/components/Icon.astro)
 export const SKILLS = {
-  programming: [
+  languages: [
     { label: 'Python', icon: 'python' },
     { label: 'C', icon: 'c' },
     { label: 'C++', icon: 'cplusplus' },
     { label: 'SQL', icon: 'database' },
-    { label: 'NumPy', icon: 'numpy' },
-    { label: 'Pandas', icon: 'pandas' },
+    { label: 'TypeScript', icon: 'typescript' },
   ],
-  dataEng: [
-    { label: 'Apache Airflow', icon: 'apacheairflow' },
-    { label: 'PostgreSQL', icon: 'postgresql' },
-    { label: 'SQLite', icon: 'sqlite' },
-    { label: 'Supabase', icon: 'supabase' },
+  web: [
     { label: 'FastAPI', icon: 'fastapi' },
     { label: 'REST APIs', icon: 'api' },
-    { label: 'Docker', icon: 'docker' },
+    { label: 'React', icon: 'react' },
   ],
-  analysis: [
-    { label: 'Tableau', icon: 'chart' },
+  database: [
+    { label: 'PostgreSQL', icon: 'postgresql' },
+    { label: 'MySQL', icon: 'mysql' },
+    { label: 'SQLite', icon: 'sqlite' },
+    { label: 'Supabase', icon: 'supabase' },
+  ],
+  dataml: [
+    { label: 'Pandas', icon: 'pandas' },
+    { label: 'NumPy', icon: 'numpy' },
     { label: 'Matplotlib', icon: 'linechart' },
     { label: 'Seaborn', icon: 'linechart' },
+    { label: 'Tableau', icon: 'chart' },
+    { label: 'TensorFlow', icon: 'tensorflow' },
+    { label: 'OpenCV', icon: 'opencv' },
+  ],
+  devops: [
+    { label: 'Docker', icon: 'docker' },
+    { label: 'Apache Airflow', icon: 'apacheairflow' },
+    { label: 'Linux (Ubuntu)', icon: 'ubuntu' },
+    { label: 'Vercel', icon: 'vercel' },
+    { label: 'Railway', icon: 'railway' },
   ],
   tools: [
     { label: 'Git', icon: 'git' },
     { label: 'GitHub', icon: 'github' },
-    { label: 'Linux (Ubuntu)', icon: 'ubuntu' },
-    { label: 'React', icon: 'react' },
-    { label: 'TypeScript', icon: 'typescript' },
   ],
 } as const;
 
